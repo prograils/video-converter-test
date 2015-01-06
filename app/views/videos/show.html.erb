@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Converted video files:</strong>
+  <br />
+  <%= link_to @video.video_file.url(:mp4) %>
+  <br />
+  <%= link_to @video.video_file.url(:webm) %>
+  <%= videojs_rails sources: { mp4: @video.video_file.url(:mp4), webm: @video.video_file.url(:webm)}, width: '400', height: '200' do %>
+    Please enable <b>JavaScript</b> to see this content.
+  <%- end %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
